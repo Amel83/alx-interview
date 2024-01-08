@@ -4,25 +4,28 @@
 
 def pascal_triangle(n):
     """
-    people people people people
-    people people people people
+    a function that returns a list
+    of integers representing the
+    pascal triangle of n:
+       . Returns an empty list if n <= 0
+       . assume n will be always an integer
     """
     pascal_tri = []
 
-    if m <= 0:
+    if n <= 0:
         return []
 
-    for k in range(m):
-        if (k == 0):
+    for i in range(n):
+        if (i == 0):
             pascal_tri.append([1])
         else:
             cur_row = []
-            for j in range(k + 1):
-                if (j == 0 or j == k):
+            for j in range(i + 1):
+                if (j == 0 or j == i):
                     cur_row.append(1)
                 else:
-                    cur_row.append(pascal_tri[k - 1][j - 1] +
-                                   pascal_tri[k - 1][j])
+                    cur_row.append(pascal_tri[i - 1][j - 1] +
+                                   pascal_tri[i - 1][j])
 
             pascal_tri.append(cur_row)
 
