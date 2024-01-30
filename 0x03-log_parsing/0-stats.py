@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """
-log parse
+log parsing
 """
 
 import sys
