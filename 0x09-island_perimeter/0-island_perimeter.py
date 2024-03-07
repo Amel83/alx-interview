@@ -1,12 +1,26 @@
 #!/usr/bin/python3
-""" doc """
+"""Defines ing function."""
 
 
-def validUTF8(data):
-    """ doc """
-    try:
-        maskeddata = [n & 255 for n in data]
-        bytes(maskeddata).decode("UTF-8")
-        return True
-    except Exception:
-        return False
+def island_perimeter(grid):
+    """Retun island.
+    The grind land by 1.
+    Args:
+        grid (list): A list of list  island.
+    Returns:
+        The land defined in grid.
+    """
+    width = len(grid[0])
+    height = len(grid)
+    edges = 0
+    size = 0
+
+    for i in range(height):
+        for j in range(width):
+            if grid[i][j] == 1:
+                size += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    edges += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    edges += 1
+    return size * 4 - edges * 2
